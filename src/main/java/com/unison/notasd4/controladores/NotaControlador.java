@@ -66,9 +66,9 @@ public class NotaControlador {
         return ResponseEntity.ok(notaActualizada);
     }
 
-    @DeleteMapping("/eliminar/{id}")
+    @PostMapping("/eliminar/{id}")
     public String eliminar(@PathVariable long id){
         notaRep.deleteById(id);
-        return "redirect:/notas/notas/";
+        return "redirect:/notas/";
     }
 }

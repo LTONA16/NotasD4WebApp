@@ -48,7 +48,7 @@
         <h1 class="my-3">Titulo</h1>
         <button type="button" class="btn btn-lg animacion1 btn-info text-nowrap" id="colorPickerButton" ><i class="bi bi-palette-fill"></i></button>
         -->
-        <form id="" th:action="@{/notas/agregar}" th:object="${nota}" method="post">
+        <form id="formNota" th:action="@{/notas/agregar}" th:object="${nota}" method="post">
             <div class="row">
                 <div class="col-sm-8">
                     <input th:field="*{titulo}" class="form-control animacion2 form-control-lg p-3 my-4" id="titulo" type="text" placeholder="Titulo" aria-label=".form-control-lg example" onchange="">
@@ -67,9 +67,9 @@
                 </div>
             </div>
             <textarea th:field="*{contenido}" type="text" class="form-control animacion2" id="contenido" placeholder="¡Escribe tu nota!" rows="12" onchange=""></textarea>
-            <div class="text-center">
+            <div class="p-4 text-center">
                 <button type="submit" class="btn btn-primary btn-lg text-nowrap">Agregar</button>
-                <button class="btn btn-secondary btn-lg text-nowrap" onclick="window.location.href='/notas/notas/';">Cancelar</button>
+                <button type="reset" formnovalidate class="btn btn-secondary btn-lg text-nowrap" onclick="window.location.href='/notas/notas/';">Cancelar</button>
             </div>
         </form>
     </div>

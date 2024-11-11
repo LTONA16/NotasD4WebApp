@@ -58,11 +58,14 @@
         <div class="row">
             <div class="col-sm-8">
                 <input type="hidden" id="notaId" th:value="${nota != null ? nota.getId() : 0}">
+                <button type="button" class="btn btn-light btn-lg text-nowrap" onclick="window.location.href='/notas/notas/';"><i class="bi bi-caret-left-fill"></i></button>
                 <input class="form-control animacion2 form-control-lg p-3 my-4" id="titulo" type="text" th:value="${nota != null ? nota.getTitulo() : ''}" placeholder="Titulo" aria-label=".form-control-lg example" onchange="autosaveNota()">
             </div>
             <div class="col-sm-4">
                 <div class="float-end">
-                        <button type="button" class="btn btn-lg animacion1 btn-danger text-nowrap" th:onclick="'window.location.href=\'/notas/notas/eliminar/' + ${nota.getId()} + '\';'"><i class="bi bi-trash-fill"></i></button>
+                    <form id="formDelete" th:action="@{/notas/eliminar/{id}(id=${nota.id})}" th:object="${nota}" method="post">
+                        <button type="submit" class="btn btn-lg animacion1 btn-danger text-nowrap" ><i class="bi bi-trash-fill"></i></button>
+                    </form>
                 </div>
                 <div class="me-2 btn-sm float-end">
                     <form id="colorForm">
